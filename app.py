@@ -3,7 +3,7 @@
 import telebot as tl
 import pars
 
-TOKEN = '7257276665:AAFMuQrB4QVz9oEHMVNS40N1ss76Nq0iFVc'
+TOKEN = 'TOKEN'
 
 bot = tl.TeleBot(TOKEN)
 
