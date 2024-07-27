@@ -18,9 +18,9 @@ def handle_docs_hello(message):
 
 @bot.message_handler(commands=['values'])
 def handle_docs_hello(message):
-    pr = '||'
-    for _ in pars.values_():
-        pr += _ + '|| '
+    pr = ''
+    for _ in pars.name_currency():
+        pr += '||' + _ + '||\n'
     bot.reply_to(message, f"{pr}")
 
 

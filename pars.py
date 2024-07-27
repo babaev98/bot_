@@ -6,18 +6,24 @@ html = requests.get(base).content
 soup = BeautifulSoup(html, 'lxml')
 div = soup.find('table', class_='data')
 a = div.find_all('td')
-currency_dictionary = {}
-
-for i in range(0, len(a), 5):
-    currency_dictionary[a[i].getText()] = tuple([a[i + x].getText() for x in range(1, 4)])
 
 
-def values_():
+def pars():
+    currency_dictionary = {}
+    for i in range(1, len(a), 5):
+        currency_dictionary[a[i].getText()] = a[i+2].getText()
+        currency_dictionary['RUB'] = 'Российский рубль'
+    return currency_dictionary
+
+
+def name_currency():
+    currency_dictionary = pars()
     result = []
     for x in currency_dictionary:
-        result.append(currency_dictionary[x][2])
+        result.append(currency_dictionary[x])
     return result
 
 
-print(values_())
-
+if __name__ == "__main__":
+    print(pars())
+    print(name_currency())
